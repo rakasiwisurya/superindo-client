@@ -1,38 +1,193 @@
-.App {
-  text-align: center;
+:root {
+  --warning: #faad14;
+  --warning-hover: #ffc53d;
+  --warning-active: #d48806;
+
+  --success: #52c41a;
+  --success-hover: #73d13d;
+  --success-active: #389e0d;
+
+  --info: #69c0ff;
+  --info-hover: #91d5ff;
+  --info-active: #40a9ff;
+
+  --secondary: #bfbfbf;
+  --secondary-hover: #d9d9d9;
+  --secondary-active: #8c8c8c;
+
+  --indigo: #2f54eb;
+  --indigo-hover: #597ef7;
+  --indigo-active: #1d39c4;
+
+  --violet: #722ed1;
+  --violet-hover: #9254de;
+  --violet-active: #531dab;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-shadow {
+  box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12),
+    0 5px 12px 4px rgba(0, 0, 0, 0.09);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Button Custom */
+.btn-warning {
+  background-color: var(--warning) !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btn-warning:not(:disabled):hover {
+  background-color: var(--warning-hover) !important;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-warning:not(:disabled):active {
+  background-color: var(--warning-active) !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-outline-warning {
+  color: var(--warning) !important;
+  border-color: var(--warning) !important;
+}
+
+.btn-outline-warning:not(:disabled):hover {
+  color: var(--warning-hover) !important;
+  border-color: var(--warning-hover) !important;
+}
+
+.btn-outline-warning:not(:disabled):hover {
+  color: var(--warning-active) !important;
+  border-color: var(--warning-active) !important;
+}
+
+.btn-success {
+  background-color: var(--success) !important;
+}
+
+.btn-success:not(:disabled):hover {
+  background-color: var(--success-hover) !important;
+}
+
+.btn-success:not(:disabled):active {
+  background-color: var(--success-active) !important;
+}
+
+.btn-outline-success {
+  color: var(--success) !important;
+  border-color: var(--success) !important;
+}
+
+.btn-outline-success:not(:disabled):hover {
+  color: var(--success-hover) !important;
+  border-color: var(--success-hover) !important;
+}
+
+.btn-outline-success:not(:disabled):hover {
+  color: var(--success-active) !important;
+  border-color: var(--success-active) !important;
+}
+
+.btn-info {
+  background-color: var(--info) !important;
+}
+
+.btn-info:not(:disabled):hover {
+  background-color: var(--info-hover) !important;
+}
+
+.btn-info:not(:disabled):active {
+  background-color: var(--info-active) !important;
+}
+
+.btn-outline-info {
+  color: var(--info) !important;
+  border-color: var(--info) !important;
+}
+
+.btn-outline-info:not(:disabled):hover {
+  color: var(--info-hover) !important;
+  border-color: var(--info-hover) !important;
+}
+
+.btn-outline-info:not(:disabled):hover {
+  color: var(--info-active) !important;
+  border-color: var(--info-active) !important;
+}
+
+.btn-secondary {
+  background-color: var(--secondary) !important;
+}
+
+.btn-secondary:not(:disabled):hover {
+  background-color: var(--secondary-hover) !important;
+}
+
+.btn-secondary:not(:disabled):active {
+  background-color: var(--secondary-active) !important;
+}
+
+.btn-outline-secondary {
+  color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+}
+
+.btn-outline-secondary:not(:disabled):hover {
+  color: var(--secondary-hover) !important;
+  border-color: var(--secondary-hover) !important;
+}
+
+.btn-outline-secondary:not(:disabled):hover {
+  color: var(--secondary-active) !important;
+  border-color: var(--secondary-active) !important;
+}
+
+.btn-indigo {
+  background-color: var(--indigo) !important;
+}
+
+.btn-indigo:not(:disabled):hover {
+  background-color: var(--indigo-hover) !important;
+}
+
+.btn-indigo:not(:disabled):active {
+  background-color: var(--indigo-active) !important;
+}
+
+.btn-outline-indigo {
+  color: var(--indigo) !important;
+  border-color: var(--indigo) !important;
+}
+
+.btn-outline-indigo:not(:disabled):hover {
+  color: var(--indigo-hover) !important;
+  border-color: var(--indigo-hover) !important;
+}
+
+.btn-outline-indigo:not(:disabled):hover {
+  color: var(--indigo-active) !important;
+  border-color: var(--indigo-active) !important;
+}
+
+.btn-violet {
+  background-color: var(--violet) !important;
+}
+
+.btn-violet:not(:disabled):hover {
+  background-color: var(--violet-hover) !important;
+}
+
+.btn-violet:not(:disabled):active {
+  background-color: var(--violet-active) !important;
+}
+
+.btn-outline-violet {
+  color: var(--violet) !important;
+  border-color: var(--violet) !important;
+}
+
+.btn-outline-violet:not(:disabled):hover {
+  color: var(--violet-hover) !important;
+  border-color: var(--violet-hover) !important;
+}
+
+.btn-outline-violet:not(:disabled):hover {
+  color: var(--violet-active) !important;
+  border-color: var(--violet-active) !important;
 }
