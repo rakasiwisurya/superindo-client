@@ -2,6 +2,10 @@ import { getDashboard, resetDashboard, useAppDispatch, useAppSelector } from "@/
 import { Card, Col, Row, Statistic } from "antd";
 import { useEffect } from "react";
 
+const valueStyle = {
+  fontSize: 18,
+};
+
 const Dashboard = () => {
   const dispatch = useAppDispatch();
   const { dashboard, isDashboardLoading } = useAppSelector((state) => state.dashboard);
@@ -23,6 +27,7 @@ const Dashboard = () => {
             value={dashboard?.total_product_category}
             suffix="unit(s)"
             loading={isDashboardLoading}
+            valueStyle={valueStyle}
           />
         </Card>
       </Col>
@@ -34,6 +39,7 @@ const Dashboard = () => {
             value={dashboard?.total_product}
             suffix="unit(s)"
             loading={isDashboardLoading}
+            valueStyle={valueStyle}
           />
         </Card>
       </Col>
@@ -45,6 +51,7 @@ const Dashboard = () => {
             value={dashboard?.total_product_variant}
             suffix="unit(s)"
             loading={isDashboardLoading}
+            valueStyle={valueStyle}
           />
         </Card>
       </Col>
@@ -56,6 +63,7 @@ const Dashboard = () => {
             value={dashboard?.total_transaction}
             suffix="transaction(s)"
             loading={isDashboardLoading}
+            valueStyle={valueStyle}
           />
         </Card>
       </Col>
@@ -67,6 +75,7 @@ const Dashboard = () => {
             value={dashboard?.total_customer_user}
             suffix="person(s)"
             loading={isDashboardLoading}
+            valueStyle={valueStyle}
           />
         </Card>
       </Col>
@@ -78,6 +87,7 @@ const Dashboard = () => {
             value={dashboard?.total_adminstrator_user}
             suffix="person(s)"
             loading={isDashboardLoading}
+            valueStyle={valueStyle}
           />
         </Card>
       </Col>

@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { authReducer, dashboardReducer, productCategoryReducer } from "../features";
+import { authReducer, dashboardReducer, productCategoryReducer, productReducer } from "../features";
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
     dashboard: dashboardReducer,
     productCategory: productCategoryReducer,
+    product: productReducer,
   },
   devTools: process.env.NODE_ENV === "development",
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),

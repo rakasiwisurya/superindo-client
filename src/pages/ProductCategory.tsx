@@ -66,6 +66,7 @@ const ProductCategory = () => {
       dataIndex: "action",
       key: "action",
       align: "center",
+      fixed: "right",
       render: (_, record) => (
         <Flex gap={10}>
           <ButtonCustom
@@ -103,7 +104,6 @@ const ProductCategory = () => {
 
   const handleEdit = (record: any) => {
     setEditId(record?.id);
-    console.log("record?.id", record?.id);
     setIsModalEditOpen(true);
   };
 

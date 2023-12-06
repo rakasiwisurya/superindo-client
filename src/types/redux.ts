@@ -51,3 +51,27 @@ export type TProductCategoryState = {
   deleteProductCategoryError: any;
   deleteProductCategorySuccess: any;
 };
+
+export type TProductState = {
+  products: any[];
+  isProductsLoading: boolean;
+  productsError: any;
+  productsSuccess: any;
+
+  product: any;
+  isProductLoading: boolean;
+  productError: any;
+  productSuccess: any;
+
+  isAddProductLoading: boolean;
+  addProductError: any;
+  addProductSuccess: any;
+
+  isUpdateProductLoading: boolean;
+  updateProductError: any;
+  updateProductSuccess: any;
+
+  isDeleteProductLoading: boolean;
+  deleteProductError: any;
+  deleteProductSuccess: any;
+};
