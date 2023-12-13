@@ -17,9 +17,8 @@ const { Title } = Typography;
 
 const ProductCategory = () => {
   const dispatch = useAppDispatch();
-  const { productCategories, deleteProductCategorySuccess } = useAppSelector(
-    (state) => state.productCategory
-  );
+  const { isProductCategoriesLoading, productCategories, deleteProductCategorySuccess } =
+    useAppSelector((state) => state.productCategory);
 
   const [isModalAddOpen, setIsModalAddOpen] = useState(false);
   const [isModalEditOpen, setIsModalEditOpen] = useState(false);
@@ -132,6 +131,7 @@ const ProductCategory = () => {
       </Button>
 
       <Table
+        loading={isProductCategoriesLoading}
         dataSource={productCategories}
         columns={columns.current}
         scroll={{ x: "max-content" }}

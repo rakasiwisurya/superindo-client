@@ -1,18 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { logout, useAppDispatch } from "@/redux";
 import {
   BarChartOutlined,
-  DashboardOutlined,
   CloudServerOutlined,
   CloudSyncOutlined,
   CloudUploadOutlined,
+  DashboardOutlined,
   LogoutOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu, Button, theme, Typography, Flex, Dropdown, Avatar } from "antd";
+import { Avatar, Button, Dropdown, Flex, Layout, Menu, Typography, theme } from "antd";
+import { useEffect, useRef, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { logout, useAppDispatch } from "@/redux";
 
 const { Footer, Header, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -61,7 +61,7 @@ const AdminLayout = () => {
   ]);
   const items = useRef([
     {
-      key: "1",
+      key: "logout",
       icon: <LogoutOutlined />,
       label: <div onClick={() => dispatch(logout())}>Logout</div>,
     },
@@ -74,7 +74,7 @@ const AdminLayout = () => {
         collapsible
         collapsed={collapsed}
         theme="light"
-        style={{ height: "100vh" }}
+        style={{ minHeight: "100vh" }}
       >
         <Flex align="center" justify="center" style={{ height: 64 }}>
           <Title level={1} style={{ color: "#868687", fontSize: collapsed ? ".7rem" : "1rem" }}>

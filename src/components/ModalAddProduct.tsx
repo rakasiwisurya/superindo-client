@@ -1,8 +1,9 @@
 import { addProduct, getProducts, resetAddProduct, useAppDispatch, useAppSelector } from "@/redux";
+import { IModalCommonProps } from "@/types";
 import { Form, Input, Modal, Select, notification } from "antd";
 import { useEffect } from "react";
 
-const ModalAddProduct = ({ isOpen, onCancel }: { isOpen: boolean; onCancel: () => void }) => {
+const ModalAddProduct = ({ isOpen, onCancel }: IModalCommonProps) => {
   const dispatch = useAppDispatch();
   const { isAddProductLoading, addProductSuccess } = useAppSelector((state) => state.product);
   const { productCategories } = useAppSelector((state) => state.productCategory);

@@ -1,26 +1,28 @@
 import { Button, ButtonProps } from "antd";
 
-type TButtonCustom = ButtonProps & {
-  variant?:
-    | "primary"
-    | "outline-primary"
-    | "danger"
-    | "outline-danger"
-    | "warning"
-    | "outline-warning"
-    | "success"
-    | "outline-success"
-    | "info"
-    | "outline-info"
-    | "secondary"
-    | "outline-secondary"
-    | "indigo"
-    | "outline-indigo"
-    | "violet"
-    | "outline-violet";
-};
+type TVariant =
+  | "primary"
+  | "outline-primary"
+  | "danger"
+  | "outline-danger"
+  | "warning"
+  | "outline-warning"
+  | "success"
+  | "outline-success"
+  | "info"
+  | "outline-info"
+  | "secondary"
+  | "outline-secondary"
+  | "indigo"
+  | "outline-indigo"
+  | "violet"
+  | "outline-violet";
 
-const ButtonCustom = ({ children, variant, ...rest }: TButtonCustom) => {
+interface IButtonCustom extends ButtonProps {
+  variant?: TVariant;
+}
+
+const ButtonCustom = ({ children, variant, ...rest }: IButtonCustom) => {
   if (variant === "outline-violet") {
     return (
       <Button {...rest} type="default" className="btn-outline-violet">

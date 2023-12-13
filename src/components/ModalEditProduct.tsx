@@ -1,5 +1,3 @@
-import { Form, Input, Modal, Select, notification } from "antd";
-import Loading from "./Loading";
 import {
   getProduct,
   getProducts,
@@ -8,17 +6,12 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "@/redux";
+import { IModalEditCommonProps } from "@/types";
+import { Form, Input, Modal, Select, notification } from "antd";
 import { useEffect } from "react";
+import Loading from "./Loading";
 
-const ModalEditProduct = ({
-  isOpen,
-  onCancel,
-  id,
-}: {
-  isOpen: boolean;
-  onCancel: () => void;
-  id: any;
-}) => {
+const ModalEditProduct = ({ isOpen, onCancel, id }: IModalEditCommonProps) => {
   const dispatch = useAppDispatch();
   const { product, isProductLoading, isUpdateProductLoading, updateProductSuccess } =
     useAppSelector((state) => state.product);

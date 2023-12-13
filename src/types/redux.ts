@@ -75,3 +75,53 @@ export type TProductState = {
   deleteProductError: any;
   deleteProductSuccess: any;
 };
+
+export type TProductVariantState = {
+  productVariants: any[];
+  isProductVariantsLoading: boolean;
+  productVariantsError: any;
+  productVariantsSuccess: any;
+
+  productVariant: any;
+  isProductVariantLoading: boolean;
+  productVariantError: any;
+  productVariantSuccess: any;
+
+  isAddProductVariantLoading: boolean;
+  addProductVariantError: any;
+  addProductVariantSuccess: any;
+
+  isUpdateProductVariantLoading: boolean;
+  updateProductVariantError: any;
+  updateProductVariantSuccess: any;
+
+  isDeleteProductVariantLoading: boolean;
+  deleteProductVariantError: any;
+  deleteProductVariantSuccess: any;
+};
+
+export type TTransactionState = {
+  isAddTransactionLoading: boolean;
+  addTransactionError: any;
+  addTransactionSuccess: any;
+
+  transactions: any[];
+  isTransactionsLoading: boolean;
+  transactionsError: any;
+  transactionsSuccess: any;
+
+  transactionDetails: any[];
+  isTransactionDetailsLoading: boolean;
+  transactionDetailsError: any;
+  transactionDetailsSuccess: any;
+};
+
+export type TCartState = {
+  carts: {
+    id: any;
+    product_variant_name: string;
+    price: number;
+    qty: number;
+    subTotal: number;
+  }[];
+};

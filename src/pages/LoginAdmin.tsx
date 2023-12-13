@@ -1,5 +1,5 @@
 import { ModalRegisterAdmin } from "@/components";
-import { loginAdmin, resetLogin, useAppDispatch, useAppSelector } from "@/redux";
+import { loginAdmin, resetLoginAdmin, useAppDispatch, useAppSelector } from "@/redux";
 import { Button, Card, Flex, Form, Input, Typography, notification } from "antd";
 import { useEffect, useState } from "react";
 
@@ -12,7 +12,7 @@ const LoginAdmin = () => {
   useEffect(() => {
     if (loginAdminSuccess) {
       notification.success({ message: "Success", description: loginAdminSuccess });
-      dispatch(resetLogin());
+      dispatch(resetLoginAdmin());
     }
   }, [dispatch, loginAdminSuccess]);
 

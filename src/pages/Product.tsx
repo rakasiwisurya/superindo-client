@@ -1,6 +1,7 @@
 import { ButtonCustom, ModalAddProduct, ModalEditProduct } from "@/components";
 import {
   clearProduct,
+  clearProductCategory,
   deleteProduct,
   getProductCategories,
   getProducts,
@@ -18,7 +19,9 @@ const { Title } = Typography;
 
 const Product = () => {
   const dispatch = useAppDispatch();
-  const { products, deleteProductSuccess } = useAppSelector((state) => state.product);
+  const { isProductsLoading, products, deleteProductSuccess } = useAppSelector(
+    (state) => state.product
+  );
 
   const [isModalAddOpen, setIsModalAddOpen] = useState(false);
   const [isModalEditOpen, setIsModalEditOpen] = useState(false);
@@ -104,6 +107,7 @@ const Product = () => {
 
     return () => {
       dispatch(clearProduct());
+      dispatch(clearProductCategory());
     };
   }, [dispatch]);
 
@@ -146,6 +150,7 @@ const Product = () => {
       </Button>
 
       <Table
+        loading={isProductsLoading}
         dataSource={products}
         columns={columns.current}
         scroll={{ x: "max-content" }}

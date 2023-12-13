@@ -1,22 +1,22 @@
-import { registerAdmin, resetRegisterAdmin, useAppDispatch, useAppSelector } from "@/redux";
+import { register, resetRegister, useAppDispatch, useAppSelector } from "@/redux";
 import { IModalCommonProps } from "@/types";
 import { Form, Input, Modal, notification } from "antd";
 import { useEffect } from "react";
 
-const ModalRegisterAdmin = ({ isOpen, onCancel }: IModalCommonProps) => {
+const ModalRegister = ({ isOpen, onCancel }: IModalCommonProps) => {
   const dispatch = useAppDispatch();
   const { isRegisterAdminLoading, registerAdminSuccess } = useAppSelector((state) => state.auth);
 
   useEffect(() => {
     if (registerAdminSuccess) {
       notification.success({ message: "Success", description: registerAdminSuccess });
-      dispatch(resetRegisterAdmin());
+      dispatch(resetRegister());
       onCancel();
     }
   }, [dispatch, onCancel, registerAdminSuccess]);
 
   const handleRegister = (values: any) => {
-    dispatch(registerAdmin(values));
+    dispatch(register(values));
   };
 
   return (
@@ -32,6 +32,7 @@ const ModalRegisterAdmin = ({ isOpen, onCancel }: IModalCommonProps) => {
         loading: isRegisterAdminLoading,
       }}
       destroyOnClose
+      centered
     >
       <Form id="formRegister" onFinish={handleRegister} layout="vertical" requiredMark={false}>
         <Form.Item label="Username" name="username" rules={[{ required: true }]}>
@@ -46,4 +47,4 @@ const ModalRegisterAdmin = ({ isOpen, onCancel }: IModalCommonProps) => {
   );
 };
 
-export default ModalRegisterAdmin;
+export default ModalRegister;
