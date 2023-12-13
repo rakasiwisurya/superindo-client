@@ -15,6 +15,10 @@ const ModalRegisterAdmin = ({ isOpen, onCancel }: IModalCommonProps) => {
     }
   }, [dispatch, onCancel, registerAdminSuccess]);
 
+  useEffect(() => {
+    if (!isOpen) dispatch(resetRegisterAdmin());
+  }, [dispatch, isOpen]);
+
   const handleRegister = (values: any) => {
     dispatch(registerAdmin(values));
   };

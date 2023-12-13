@@ -36,11 +36,13 @@ const Navbar = () => {
     <>
       <Header style={{ padding: 0, background: colorBgContainer }}>
         <Container style={{ display: "flex", justifyContent: "space-between" }}>
-          <Flex align="center" justify="center" style={{ height: 64 }}>
-            <Title level={1} style={{ color: "#868687", fontSize: "1rem" }}>
-              SUPERINDO
-            </Title>
-          </Flex>
+          <Link to="/">
+            <Flex align="center" justify="center" style={{ height: 64 }}>
+              <Title level={1} style={{ color: "#868687", fontSize: "1rem" }}>
+                SUPERINDO
+              </Title>
+            </Flex>
+          </Link>
 
           <Flex align="center" justify="center" gap={10} style={{ height: 64 }}>
             {user ? (

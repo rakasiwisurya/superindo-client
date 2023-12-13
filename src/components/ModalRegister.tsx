@@ -5,15 +5,19 @@ import { useEffect } from "react";
 
 const ModalRegister = ({ isOpen, onCancel }: IModalCommonProps) => {
   const dispatch = useAppDispatch();
-  const { isRegisterAdminLoading, registerAdminSuccess } = useAppSelector((state) => state.auth);
+  const { isRegisterLoading, registerSuccess } = useAppSelector((state) => state.auth);
 
   useEffect(() => {
-    if (registerAdminSuccess) {
-      notification.success({ message: "Success", description: registerAdminSuccess });
+    if (registerSuccess) {
+      notification.success({ message: "Success", description: registerSuccess });
       dispatch(resetRegister());
       onCancel();
     }
-  }, [dispatch, onCancel, registerAdminSuccess]);
+  }, [dispatch, onCancel, registerSuccess]);
+
+  useEffect(() => {
+    if (!isOpen) dispatch(resetRegister());
+  }, [dispatch, isOpen]);
 
   const handleRegister = (values: any) => {
     dispatch(register(values));
@@ -29,7 +33,7 @@ const ModalRegister = ({ isOpen, onCancel }: IModalCommonProps) => {
       okButtonProps={{
         htmlType: "submit",
         form: "formRegister",
-        loading: isRegisterAdminLoading,
+        loading: isRegisterLoading,
       }}
       destroyOnClose
       centered

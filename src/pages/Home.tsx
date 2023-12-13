@@ -1,4 +1,4 @@
-import { MainContent, Navbar, SideContent } from "@/components";
+import { BottomBar, MainContent, Navbar, SideContent } from "@/components";
 import { Flex, Layout } from "antd";
 
 const Home = () => {
@@ -11,6 +11,7 @@ const Home = () => {
           <SideContent />
           <MainContent />
         </Flex>
+        <BottomBar />
       </Layout>
     </Layout>
   );

@@ -8,6 +8,7 @@ import {
   ProductCategory,
   ProductVariant,
   Transaction,
+  UserTransaction,
 } from "@/pages";
 import { createBrowserRouter } from "react-router-dom";
 import AuthenticatedRoute from "./AuthenticatedRoute";
@@ -19,6 +20,15 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/user",
+        children: [
+          {
+            path: "transactions",
+            element: <UserTransaction />,
+          },
+        ],
       },
       {
         path: "/admin/login",

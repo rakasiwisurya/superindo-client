@@ -15,6 +15,10 @@ const ModalLogin = ({ isOpen, onCancel }: IModalCommonProps) => {
     }
   }, [dispatch, onCancel, loginSuccess]);
 
+  useEffect(() => {
+    if (!isOpen) dispatch(resetLogin());
+  }, [dispatch, isOpen]);
+
   const handleLogin = (values: any) => {
     dispatch(login(values));
   };

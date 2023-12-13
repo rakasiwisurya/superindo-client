@@ -1,4 +1,5 @@
 export { default as AdminLayout } from "./AdminLayout";
+export { default as BottomBar } from "./BottomBar";
 export { default as ButtonCustom } from "./ButtonCustom";
 export { default as Container } from "./Container";
 export { default as Loading } from "./Loading";
@@ -12,5 +13,6 @@ export { default as ModalEditProductVariant } from "./ModalEditProductVariant";
 export { default as ModalLogin } from "./ModalLogin";
 export { default as ModalRegisterAdmin } from "./ModalRegisterAdmin";
 export { default as ModalRegister } from "./ModalRegister";
+export { default as ModalUserTransactionDetail } from "./ModalUserTransactionDetail";
 export { default as Navbar } from "./Navbar";
 export { default as SideContent } from "./SideContent";

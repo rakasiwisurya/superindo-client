@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { TAsyncThunkPayload, TUserState } from "@/types";
+import { TAsyncThunkPayload, TAuthState } from "@/types";
 import { requestApi, webStorage } from "@/utils";
 
 export const registerAdmin = createAsyncThunk(
@@ -63,7 +63,7 @@ export const login = createAsyncThunk("login", async (payload: TAsyncThunkPayloa
   }
 });
 
-const initialState: TUserState = {
+const initialState: TAuthState = {
   user: null,
   isAppLoading: true,
 

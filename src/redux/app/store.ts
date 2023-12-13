@@ -7,6 +7,7 @@ import {
   productReducer,
   productVariantReducer,
   transactionReducer,
+  userReducer,
 } from "../features";
 
 const store = configureStore({
@@ -18,6 +19,7 @@ const store = configureStore({
     productVariant: productVariantReducer,
     transaction: transactionReducer,
     cart: cartReducer,
+    user: userReducer,
   },
   devTools: process.env.NODE_ENV === "development",
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),

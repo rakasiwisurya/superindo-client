@@ -1,6 +1,6 @@
 export type TAsyncThunkPayload = any | undefined;
 
-export type TUserState = {
+export type TAuthState = {
   user: any;
   isAppLoading: boolean;
 
@@ -124,4 +124,16 @@ export type TCartState = {
     qty: number;
     subTotal: number;
   }[];
+};
+
+export type TUserState = {
+  userTransactions: any[];
+  isUserTransactionsLoading: boolean;
+  userTransactionsError: any;
+  userTransactionsSuccess: any;
+
+  userTransaction: any;
+  isUserTransactionLoading: boolean;
+  userTransactionError: any;
+  userTransactionSuccess: any;
 };
