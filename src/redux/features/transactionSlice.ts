@@ -46,6 +46,10 @@ export const getTransactionDetails = createAsyncThunk(
 );
 
 const initialState: TTransactionState = {
+  isAddTransactionLoading: false,
+  addTransactionError: null,
+  addTransactionSuccess: null,
+
   transactions: [],
   isTransactionsLoading: true,
   transactionsError: null,
@@ -55,16 +59,17 @@ const initialState: TTransactionState = {
   isTransactionDetailsLoading: true,
   transactionDetailsError: null,
   transactionDetailsSuccess: null,
-
-  isAddTransactionLoading: true,
-  addTransactionError: null,
-  addTransactionSuccess: null,
 };
 
 const transactionSlice = createSlice({
   name: "transaction",
   initialState,
   reducers: {
+    resetAddTransaction: (state) => {
+      state.isAddTransactionLoading = false;
+      state.addTransactionError = null;
+      state.addTransactionSuccess = null;
+    },
     resetTransactions: (state) => {
       state.isTransactionsLoading = true;
       state.transactionsError = null;
@@ -89,7 +94,6 @@ const transactionSlice = createSlice({
   },
   extraReducers: (builder) => {
     return builder
-
       .addCase(addTransaction.pending, (state) => {
         state.isAddTransactionLoading = true;
       })
@@ -128,6 +132,6 @@ const transactionSlice = createSlice({
   },
 });
 
-export const { resetTransactions, resetTransactionDetails, clearTransaction } =
+export const { resetAddTransaction, resetTransactions, resetTransactionDetails, clearTransaction } =
   transactionSlice.actions;
 export const transactionReducer = transactionSlice.reducer;

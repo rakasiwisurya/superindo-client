@@ -2,21 +2,27 @@ import {
   addTransaction,
   clearCart,
   deleteCart,
+  getProductVariants,
+  resetAddTransaction,
   setProductVariants,
   useAppDispatch,
   useAppSelector,
 } from "@/redux";
 import { formatNumber, sum } from "@/utils";
 import { DeleteOutlined, ShoppingCartOutlined } from "@ant-design/icons";
-import { Button, Card, Divider, Flex, Table, Typography } from "antd";
+import { Button, Card, Divider, Flex, Table, Typography, notification } from "antd";
 import { useEffect } from "react";
 
 const { Text } = Typography;
 
 const SideContent = () => {
   const dispatch = useAppDispatch();
+  const { user } = useAppSelector((state) => state.auth);
   const { carts } = useAppSelector((state) => state.cart);
   const { productVariants } = useAppSelector((state) => state.productVariant);
+  const { isAddTransactionLoading, addTransactionSuccess } = useAppSelector(
+    (state) => state.transaction
+  );
 
   useEffect(() => {
     return () => {
@@ -24,12 +30,25 @@ const SideContent = () => {
     };
   }, [dispatch]);
 
+  useEffect(() => {
+    if (addTransactionSuccess) {
+      notification.success({ message: "Success", description: addTransactionSuccess });
+      dispatch(resetAddTransaction());
+      dispatch(getProductVariants());
+      dispatch(clearCart());
+    }
+  }, [dispatch, addTransactionSuccess]);
+
   const handleDelete = (record: any) => {
     dispatch(deleteCart(record));
     dispatch(setProductVariants(productVariants));
   };
 
   const handleBuy = () => {
+    if (!user) {
+      return notification.info({ message: "Info", description: "Login to make transaction" });
+    }
+
     const products = {
       products: carts.map((cart) => ({
         qty: cart.qty,
@@ -109,7 +128,13 @@ const SideContent = () => {
       </Card>
 
       <Card>
-        <Button type="primary" onClick={handleBuy} block disabled={carts.length <= 0}>
+        <Button
+          type="primary"
+          onClick={handleBuy}
+          block
+          loading={isAddTransactionLoading}
+          disabled={carts.length <= 0}
+        >
           Buy
         </Button>
       </Card>
