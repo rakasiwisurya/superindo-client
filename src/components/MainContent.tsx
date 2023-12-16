@@ -9,12 +9,15 @@ import {
 import { formatNumber, parseNumber } from "@/utils";
 import { Button, Card, Col, Empty, Flex, Image, InputNumber, Row, Typography } from "antd";
 import { useEffect } from "react";
+import Loading from "./Loading";
 
 const { Text } = Typography;
 
 const MainContent = () => {
   const dispatch = useAppDispatch();
-  const { productVariants } = useAppSelector((state) => state.productVariant);
+  const { isProductVariantsLoading, productVariants } = useAppSelector(
+    (state) => state.productVariant
+  );
   const { carts } = useAppSelector((state) => state.cart);
 
   useEffect(() => {
@@ -65,6 +68,8 @@ const MainContent = () => {
 
     dispatch(addCart(selectedProductVariant));
   };
+
+  if (isProductVariantsLoading) return <Loading height="auto" width="100%" />;
 
   return (
     <main className="main-content">
